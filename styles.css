@@ -1,0 +1,457 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+header {
+    position: static;  /* Alterado de sticky para static */
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    /* Removidas propriedades de posicionamento fixo */
+}
+
+header h1 {
+    width: 50%;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 15px;
+    text-align: center;
+    color: #FF1493;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+nav {
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: rgba(255, 192, 203, 0.7); /* Rosa claro semi-transparente */
+    padding: 20px 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d8f004 rgba(47, 250, 7, 0.2);
+}
+
+nav::-webkit-scrollbar-track {
+    background: rgba(4, 245, 16, 0.2);
+}
+
+nav::-webkit-scrollbar-thumb {
+    background-color: #FF00FF;
+    border-radius: 4px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: calc(100vh - 140px); /* Altura do viewport menos espaço para o ícone da bandeira */
+}
+
+nav ul li {
+    padding: 10px 20px;
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-left: 0; /* Remove margem à esquerda */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+    border-bottom: none;
+}
+
+nav ul li a {
+    color: black; /* Altera a cor do texto para preto */
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+    padding-left: 0; /* Remove padding à esquerda */
+}
+
+nav ul li a:hover {
+    color: #FF1493;
+}
+
+main {
+    margin-left: 220px;
+    margin-right: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    /* Removido margin-top e margin-bottom extras */
+}
+
+footer {
+    position: sticky; /* Alterado de fixed para sticky */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px;
+    background: rgba(10, 247, 1, 0.8);
+    color: white;
+    z-index: 1000;
+    margin-top: auto; /* Mantém o footer no final do conteúdo */
+}
+
+h2 {
+    border-bottom: 2px solid #FF00FF;
+    padding-bottom: 5px;
+}
+
+.animated-text:hover {
+    color: #FF00FF;
+}
+
+.welcome-text {
+    margin: 30px 0;
+    border: none;
+}
+
+.welcome-text h2 {
+    border: none;
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    margin-top: 5px;
+}
+
+.music-container {
+    position: relative;
+    padding: 20px 40px;
+    border: 2px solid #FF00FF;
+    border-radius: 15px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+
+    background-image: url('buraconegroCopia.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    box-shadow: 0 0 25px #FF00FF;
+    color: white;
+    backdrop-filter: brightness(1.2) saturate(1.2);
+}
+
+.music-container img {
+    display: none; /* Oculta a tag <img> original */
+}
+
+.music-container h2 {
+    background-color: transparent; /* Fundo transparente para o título */
+    padding: 10px;
+    border-radius: 5px;
+    color: #FF1493; /* Cor do texto do título */
+}
+
+.music-container p {
+    background-color: transparent; /* Fundo transparente para o parágrafo */
+    padding: 15px;
+    border-radius: 5px;
+    color: white; /* Cor do texto do parágrafo */
+}
+
+.flag-icon {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.flag-icon img {
+    width: 40px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.social-submenu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgb(214, 139, 195);
+    z-index: 1000; /* Increase z-index to ensure it overlays other content */
+
+    padding: 20px 20px 150px 20px; /* Aumentado padding inferior para 150px */
+    margin-bottom: 10em; /* Aumentada margem inferior */
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    scrollbar-width: thin;
+    scrollbar-color: #2f3131 rgba(250, 246, 6, 0);
+    padding-bottom: 150px; /* Adiciona espaço extra na parte inferior do submenu */
+}
+
+.social-submenu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.social-submenu::-webkit-scrollbar-track {
+    background: rgba(23, 240, 4, 0.2);
+}
+
+.social-submenu::-webkit-scrollbar-thumb {
+    background-color: #FF00FF;
+    border-radius: 4px;
+}
+
+.social-submenu.minimized {
+    transform: translateX(100%);
+}
+
+.toggle-submenu {
+    position: fixed;
+    right: 270px; /* Aumentado para ficar fora do submenu */
+    top: 50%;
+    transform: translateY(-50%);
+    background: #FF00FF;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    width: 20px;
+    text-align: center;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-submenu.minimized {
+    right: 0;
+    background: rgb(207, 84, 166);
+    color: #FF00FF; /* Keep pink color when minimized */
+}
+
+.social-submenu h3 {
+    color: #FF00FF;
+    border-bottom: 1px solid #FF00FF;
+    padding-bottom: 5px;
+    margin-top: 25px; /* Aumentado espaçamento entre seções */
+    margin-bottom: 15px; /* Aumentado espaçamento após títulos */
+}
+
+/* Favicon linked in index.html: <link rel="icon" href="{{ url_for('static', filename='/ICON.ico') }}" type="image/x-icon"> */
+/* Adicionar margem extra após o último grupo */
+
+.social-submenu h3:last-of-type {
+    margin-top: 35px; /* Maior espaçamento antes do último grupo */
+}
+
+.social-submenu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 10px;
+}
+
+.social-submenu a:hover {
+    color: #FF00FF;
+    transform: translateX(10px);
+    background: linear-gradient(90deg, rgba(255, 0, 255, 0.1), transparent);
+    border-radius: 5px;
+}
+
+.social-submenu a::before {
+    content: '♪';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.social-submenu a:hover::before {
+    opacity: 1;
+    left: -10px;
+    color: #FF00FF;
+}
+
+/* Garantir espaço após o último link */
+.social-submenu a:last-child {
+    margin-bottom: 50px; /* Espaço extra após o último link */
+}
+
+.about-content {
+    background: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 50px;  /* Reduzido para dar mais espaço à direita */
+    margin-left: auto;   /* Desloca o conteúdo para direita */
+    padding-bottom: 100px;
+    width: 70%;         /* Largura do container */
+    float: right;       /* Flutua para direita */
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px 0;
+}
+
+.welcome-container .welcome-text {
+    margin: 0;
+    flex: 1;
+}
+
+.welcome-container .welcome-flag {
+    width: 200px;
+    height: 150px;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0,);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.social-feed {
+    margin: 40px 0;
+    padding: 20px;
+    background: rgba(16, 211, 130, 0.7);
+    border-radius: 10px;
+    border: 2px solid #FF00FF;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.stats-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    min-height: 500px;
+}
+
+.wiki-container {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    float: right;      /* Flutua para direita */
+    clear: right;      /* Limpa flutuação à direita */
+    width: 100%;       /* Ocupa toda largura do container pai */
+}
+
+.wiki-container p {
+    line-height: 1.6;
+    margin: 0;
+    padding: 10px;
+    color: rgb(10, 146, 224);
+}
+
+.wiki-container a {
+    color: #FF00FF !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.wiki-container a:hover {
+    color: #ff66ff !important;
+    text-shadow: 0 0 5px #FF00FF;
+}
+
+.question-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.question-form input,
+.question-form textarea {
+    padding: 10px;
+    border: 2px solid #FF00FF;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.question-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.question-form button {
+    padding: 10px 20px;
+    background: #FF00FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.question-form button:hover {
+    background: #ff66ff;
+    transform: scale(1.05);
+}
+
+button, input[type="submit"] {
+    background: #FF1493;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #FF69B4;
+}
+
+/* Remover classes redundantes de container e criar um único estilo */
+.content-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    width: 100%;
+}
+
+/* Remover classes específicas e usar apenas uma classe principal */
+.container,
+.stats-container,
+.analysis-container,
+.wiki-container,
+.music-container,
+.game-container,
+.question-form,
+.about-content,
+.nav-guide,
+.chart-container,
+.map-container {
+    /* Herdar estilos do content-container */
+}
+
